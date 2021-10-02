@@ -9,9 +9,11 @@ resource "google_compute_instance" "tf-instance-1" {
     }
   }
 
-  network_interface {
-    network = "default"
+   network_interface {
+    network = "terraform-vpc"
+    subnetwork = "subnet-01"
   }
+}
   metadata_startup_script = <<-EOT
         #!/bin/bash
     EOT
@@ -49,9 +51,11 @@ resource "google_compute_instance" "tf-instance-3" {
     }
   }
 
-  network_interface {
-    network = "default"
+    network_interface {
+     network = "terraform-vpc"
+      subnetwork = "subnet-01"
   }
+}
   metadata_startup_script = <<-EOT
         #!/bin/bash
     EOT
